@@ -1,1 +1,1 @@
-# JosueC-pub
+# Josue's Student Account Public
