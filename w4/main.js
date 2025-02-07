@@ -39,8 +39,14 @@ function start(houseHoldMembers, houseSize) {
   cfpData.push([houseHoldMembers, houseSize, houseHoldPTS, houseSizePTS, total]);
 }
 
-function displayOutput(){
-    
+function displayOutput() {
+    for (arr of cfpData){
+        console.log(arr)
+        const output = document.getElementById("output");
+        const newP = document.createElement("p");
+        newP.textContent = `A household with ${arr[0]} members living in a ${arr[1]} home earns ${arr[2]} points and ${arr[3]} points for home size resulting in a total of ${arr[4]} carbon footprint `;
+        output.appendChild(newP)
+    }
 }
 
 start(5, "apt");
