@@ -55,13 +55,26 @@ function start(houseHoldMembers, houseSize) {
   });
 }
 
+
 function displayOutput() {
+  if (cfpData.length === 0) {
+    console.log();
+    return;
+  }
   for (obj of cfpData) {
     console.log(obj)
     const output = document.getElementById("output");
     const newH2 = document.createElement("h2");
-    newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`
+    newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
+    const newH3 = document.createElement("h3");
+    newH3.textContent = "Based on Number in Size of Home";
+    const newP = document.createElement("p");
+    newP.textContent = `This number is based on the number of members of the household of ${obj.houseM} (score: ${obj.houseMPTS}) `;
+    newP.textContent += `and a ${obj.houseS} size of home (score: ${obj.houseSPTS})`;
+
     output.appendChild(newH2);
+    output.appendChild(newH3);
+    output.appendChild(newP);
   }
 }
 
