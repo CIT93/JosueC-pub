@@ -1,3 +1,4 @@
+const FORM = document.getElementById("form")
 const cfpData = [];
 
 function determineHouseSizePts(size) {
@@ -102,3 +103,14 @@ function displayOutput() {
 // start(7, "large");
 
 displayOutput()
+
+FORM.addEventListener(`submit`, function(e){
+  e.preventDefault();
+  // console.log(`I am inside the callback function`);
+  // console.log(e);
+  const firstName = FORM.firstName.value;
+  const lastName = FORM.lastName.value;
+})
+
+//callback
+// the event listener waits for a form to be submitted. When that happens the function runs then stops the form form actually submiting. It also logs the event (e).
