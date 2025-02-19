@@ -114,3 +114,4 @@ FORM.addEventListener(`submit`, function(e){
 
 //callback
 // the event listener waits for a form to be submitted. When that happens the function runs then stops the form form actually submiting. It also logs the event (e).
+// what would you add to get those values form the user 
