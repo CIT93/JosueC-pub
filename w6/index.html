@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="main.js"></script>
-    <title>Week 5 - Carbon Footprint - public</title>
-    <style>
-        html {
-            font-size: 22px
-        }
-        body {
-            background-color: #333;
-            color: whitesmoke;
-        }
-    </style>
-</head>
-<body>
-    <div id="output"></div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script defer src="main.js"></script>
+        <title>Week 6 - Carbon Footprint - public</title>
+        <style>
+            html {
+                font-size: 22px
+            }
+            body {
+                background-color: #333;
+                color: whitesmoke;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="form">
+            <fieldset>
+                <legend>Input Carbon Footprint</legend>
+                <div>
+                    <label for="">First Name:</label>
+                    <input type="text" name="firstname" required/>
+                </div>
+                <div>
+                    <label for="">Last Name:</label>
+                    <input type="text" name="lastname" required/>
+                </div>
+                <button type="submit">Submit</button>
+            </fieldset> 
+        </form>
+        <div id="output"></div>
+    </body>
 </html>
