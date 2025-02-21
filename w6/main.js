@@ -1,4 +1,5 @@
 const FORM = document.getElementById("form")
+const OUTPUT = document.getElementById("output");
 const cfpData = [];
 
 function determineHouseSizePts(size) {
@@ -58,7 +59,6 @@ function start(houseHoldMembers, houseSize) {
 
 
 function displayOutput() {
-  const output = document.getElementById("output");
   for (obj of cfpData) {
     const newH2 = document.createElement("h2");
     newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
@@ -67,51 +67,28 @@ function displayOutput() {
     const newP = document.createElement("p");
     newP.textContent = `This number is based on the number of members of the household of ${obj.houseM} (score: ${obj.houseMPTS}) `;
     newP.textContent += `and a ${obj.houseS} size of home (score: ${obj.houseSPTS})`;
-    output.appendChild(newH2);
-    output.appendChild(newH3);
-    output.appendChild(newP);
+    OUTPUT.appendChild(newH2);
+    OUTPUT.appendChild(newH3);
+    OUTPUT.appendChild(newP);
   }
 }
 
-// start(1, "apt");
-// start(2, "apt");
-// start(3, "apt");
-// start(4, "apt");
-// start(5, "apt");
-// start(6, "apt");
-// start(7, "apt");
-// start(1, "small");
-// start(2, "small");
-// start(3, "small");
-// start(4, "small");
-// start(5, "small");
-// start(6, "small");
-// start(7, "small");
-// start(1, "medium");
-// start(2, "medium");
-// start(3, "medium");
-// start(4, "medium");
-// start(5, "medium");
-// start(6, "medium");
-// start(7, "medium");
-// start(1, "large");
-// start(2, "large");
-// start(3, "large");
-// start(4, "large");
-// start(5, "large");
-// start(6, "large");
-// start(7, "large");
 
-displayOutput()
+
+
 
 FORM.addEventListener(`submit`, function(e){
   e.preventDefault();
-  // console.log(`I am inside the callback function`);
-  // console.log(e);
-  const firstName = FORM.firstName.value;
-  const lastName = FORM.lastName.value;
+  const firstName = FORM.firstname.value;
+  const lastName = FORM.lastname.value;
+  const houseMembers = parseInt(FORM.housem.value,);
+  const houseSize = FORM.houses.value;
+  start(houseMembers, houseSize);
+  OUTPUT.innerHTML = "";
+  displayOutput();
+  FORM.reset();
 })
 
-//callback
-// the event listener waits for a form to be submitted. When that happens the function runs then stops the form form actually submiting. It also logs the event (e).
-// what would you add to get those values form the user 
+// the aparment score seems fine but maybe you can change the 2
+// why are we doing all this work in the form to make sure the user gives us good data?
+// so that we aviod errors and make sure the results are corect
