@@ -127,11 +127,11 @@
 // displayOutput()
 
 const movies = [
-  { title: "The Matrix", year: "1999", rating: "10/10"},
-  { title: "Wall-E", year: "2008", rating: "10/10"},
-  { title: "Pan's Labyrinth", year: "2006", rating: "10/10"},
-  { title: "Ghost in the Shell", year: "1995", rating: "10/10"},
-  { title: "Moonlight", year: "2016", rating: "10/10"}
+  { title: "The Matrix", year: "1999", rating: "10/10", watched: 7},
+  { title: "Wall-E", year: "2008", rating: "10/10", watched: 21},
+  { title: "Pan's Labyrinth", year: "2006", rating: "10/10", watched: 5},
+  { title: "Ghost in the Shell", year: "1995", rating: "10/10", watched: 5},
+  { title: "Moonlight", year: "2016", rating: "10/10", watched: 2}
 ];
 
 function displayMovies() {
@@ -140,13 +140,16 @@ function displayMovies() {
   newP.textContent = "My Movie Ratings:";
   output.appendChild(newP);
 
-  for (const obj of movies) {
+  movies.forEach((obj) => {
     console.log(obj);
     const newH2 = document.createElement("h2");
     newH2.textContent = `I rated "${obj.title}" a ${obj.rating},`;
     newH2.textContent += ` which was released in ${obj.year}.`;
+    const newH3 = document.createElement("h3");
+    newH3.textContent = `Watched ${obj.watched} time.`;
     output.appendChild(newH2);
-  }
+    output.appendChild(newH3);
+  })
 }
 
 displayMovies();
