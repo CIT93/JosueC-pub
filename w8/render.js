@@ -25,13 +25,16 @@ function renderTblHeading() {
     td.appendChild(btnEdit);
     td.appendChild(btnDel);
     btnDel.addEventListener(`click`, function(e){
-      console.log(`Hello from inside the delete button`);
-      console.log(e);
       data.splice(index, 1);
       renderTbl(data);
     })
     btnEdit.addEventListener(`click`, function(e){
-      
+      const entry = data[index];
+      FORM.firstname.value = entry.firstName;
+      FORM.lastname.value = entry.lastName;
+      FORM.housem.value = entry.houseM;
+      FORM.houses.value = entry.houseS;
+      FORM.dataset.editIndex = index;
     })
     return td;
   }
@@ -55,6 +58,8 @@ function renderTblHeading() {
 }
   
 function renderTbl(data){
+  TBL.innerHTML = "";
+  if (data.length === 0) return;
   const table = renderTblHeading();
   const tbody = renderTblBody(data);
   table.appendChild(tbody);
